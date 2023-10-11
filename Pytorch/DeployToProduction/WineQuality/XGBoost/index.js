@@ -14,11 +14,11 @@ async function runExample(
   x[10]=document.getElementById('box11').value;
 
   let tensorX=new ort.Tensor('float32', x, [1, 11]);
+  let feeds = {float_input: tensorX};
 
-  let session=new onnx.InferenceSession();
-  await session.loadModel("./DLnet_WineData.onnx");
-  let outputMap= await session.run([tensorX]);
-  let outputData=outputMap.get('output1');
+  let session= await ort.InferenceSession.create('XGBoost-WineQuality_ort.onnx');
+  
+  let result= sess.run(feeds);
 
   let predictions=document.getElementById('predictions');
   predictions.innerHTML = `
