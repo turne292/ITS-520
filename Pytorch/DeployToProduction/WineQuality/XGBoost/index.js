@@ -23,7 +23,7 @@ async function runExample(
   outputData= ParseFloat(outputData).toFixed(2);
 
   let predictions=document.getElementById('predictions');
-  predictions.innerHTML = `
+  predictions.innerHTML = "
     <hr> Got an output tensor with values: </br>
     <table>
         <tr> 
@@ -31,5 +31,5 @@ async function runExample(
             <td id="td1"> ${outputData} </td>
         </tr>
     </table>
-  `;
+  ";
 )
